@@ -1,0 +1,16 @@
+# LaTeX temporary files
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.blg
+*.bbl
+*.fls
+*.fdb_latexmk
+
+# Compiled PDFs (optional - you might want to keep these in Git)
+# *.pdf
+
+# VS Code
+.vscode/
