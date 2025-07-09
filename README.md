@@ -10,6 +10,18 @@ This repository contains my resume in various formats, versions, and customizati
 - `templates/`: Different resume templates/styles
 - `scripts/`: Helper scripts for managing resumes
 
+## Setup
+
+### Initial Setup (First Time)
+
+After cloning this repository, run the setup script to install git hooks:
+
+```bash
+./scripts/setup_git_hooks.sh
+```
+
+This will install a pre-push hook that ensures your CHANGELOG.md is updated when you make resume changes.
+
 ## Usage
 
 ### Creating a company-specific resume
@@ -39,8 +51,12 @@ You can manually update the CHANGELOG with:
 ### Git Integration
 
 A pre-push hook ensures CHANGELOG.md is updated when you push changes.
+The hook is installed via `./scripts/setup_git_hooks.sh`.
+
 If you make changes to resume files without updating the CHANGELOG,
-the hook will prompt you to add an entry before allowing the push.
+the hook will prevent the push and provide clear instructions on how to update it.
+
+**Note**: If you're setting up this repository on a new machine, make sure to run the setup script to install the git hooks.
 
 
 ## Complete Workflow
