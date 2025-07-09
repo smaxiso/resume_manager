@@ -1,0 +1,84 @@
+#!/bin/bash
+
+# pre-push hook to enforce CHANGELOG updates
+
+# Get the remote and branch being pushed to
+remote="$1"
+url="$2"
+
+# Function to check if CHANGELOG.md has been modified in recent commits
+changelog_modified_in_push() {
+  # Check if CHANGELOG.md was modified in any of the commits being pushed
+  local range="$1"
+  git diff --name-only "$range" | grep -q "CHANGELOG.md"
+}
+
+# Function to check if we've modified important directories in recent commits
+relevant_changes_made_in_push() {
+  # Check if master, companies, or backups directories have changes in the push
+  local range="$1"
+  git diff --name-only "$range" | grep -q -E '^(master|companies|backups)/'
+}
+
+# Function to check for recent changes (last few commits) if no remote tracking
+relevant_changes_in_recent_commits() {
+  # Check last 3 commits for relevant changes
+  git diff --name-only HEAD~3..HEAD | grep -q -E '^(master|companies|backups)/'
+}
+
+changelog_modified_in_recent_commits() {
+  # Check last 3 commits for changelog updates
+  git diff --name-only HEAD~3..HEAD | grep -q "CHANGELOG.md"
+}
+
+# Function to generate CHANGELOG entry - removed, use ./scripts/update_changelog.sh instead
+
+# Main hook logic
+echo "🔍 Checking for changelog updates..."
+
+# Read the push information
+while read local_ref local_sha remote_ref remote_sha; do
+  # Skip if deleting a branch
+  if [ "$local_sha" = "0000000000000000000000000000000000000000" ]; then
+    continue
+  fi
+  
+  # Determine the range of commits being pushed
+  if [ "$remote_sha" = "0000000000000000000000000000000000000000" ]; then
+    # New branch - check recent commits
+    if relevant_changes_in_recent_commits && ! changelog_modified_in_recent_commits; then
+      echo "⚠️  You have made changes to the resume in recent commits, but CHANGELOG.md hasn't been updated."
+      echo "📁 Recent changes detected in: master/, companies/, or backups/ directories"
+      echo
+      echo "❌ Push aborted. Please update CHANGELOG.md before pushing."
+      echo
+      echo "💡 To update the changelog, run:"
+      echo "   ./scripts/update_changelog.sh"
+      echo "   git add CHANGELOG.md"
+      echo "   git commit -m 'Update changelog'"
+      echo "   git push"
+      exit 1
+    fi
+  else
+    # Existing branch - check the range being pushed
+    range="$remote_sha..$local_sha"
+    if relevant_changes_made_in_push "$range" && ! changelog_modified_in_push "$range"; then
+      echo "⚠️  You are pushing changes to the resume, but CHANGELOG.md hasn't been updated."
+      echo "📁 Changes detected in: master/, companies/, or backups/ directories"
+      echo "📊 Range: $range"
+      echo
+      echo "❌ Push aborted. Please update CHANGELOG.md before pushing."
+      echo
+      echo "💡 To update the changelog, run:"
+      echo "   ./scripts/update_changelog.sh"
+      echo "   git add CHANGELOG.md"
+      echo "   git commit -m 'Update changelog'"
+      echo "   git push"
+      exit 1
+    fi
+  fi
+done
+
+echo "✅ All checks passed. Proceeding with push..."
+
+exit 0
