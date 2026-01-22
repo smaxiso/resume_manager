@@ -1,6 +1,7 @@
 # Resume Changelog
 
 ## [2026-01-22]
+- Infrastructure: Update documentation (README) with new workflow
 - Created backup: 20260122_222316
 - Infrastructure: Enhanced build script (custom output/logs), fixed backup timestamps, installed missing fonts
 

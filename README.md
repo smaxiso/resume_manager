@@ -9,6 +9,7 @@ This repository contains my resume in various formats, versions, and customizati
 - `companies/`: Company-specific versions of my resume
 - `templates/`: Different resume templates/styles
 - `scripts/`: Helper scripts for managing resumes
+- `logs/`: Build logs (auto-generated)
 
 ## Setup
 
@@ -24,6 +25,20 @@ This will install a pre-push hook that ensures your CHANGELOG.md is updated when
 
 ## Usage
 
+### Building the Resume
+
+The primary build script handles LaTeX compilation, handles missing dependencies, and organizes output.
+
+**Default Build** (Outputs to `master/src/sumit_kumar.pdf`):
+```bash
+./scripts/build_resume.sh
+```
+
+**Custom Build** (Specify output directory and filename):
+```bash
+./scripts/build_resume.sh -o my_output_dir -n my_resume.pdf
+```
+
 ### Creating a company-specific resume
 
 ```bash
@@ -37,7 +52,7 @@ This repository maintains a CHANGELOG.md file to track significant changes to yo
 ### Automatic CHANGELOG Updates
 
 The CHANGELOG is automatically updated when you:
-- Run `./scripts/backup_master.sh` to create a backup
+- Run `./scripts/backup_master.sh` to create a backup (timestamped, supports multiple per day)
 - Run `./scripts/create_company_resume.sh` to create a company resume
 
 ### Manual CHANGELOG Updates
