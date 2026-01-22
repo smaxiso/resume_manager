@@ -1,6 +1,11 @@
 # Resume Changelog
 
 ## [2026-01-22]
+- Created backup: 20260122_222316
+- Infrastructure: Enhanced build script (custom output/logs), fixed backup timestamps, installed missing fonts
+
+
+## [2026-01-22]
 - Created backup: 20260122
 - Updated master resume: Refined content (Formatting, GenAI, highlighted FINN project, shortened dates)
 

@@ -1,0 +1,76 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage{custom-design}
+
+% RESUME START
+\begin{document}
+
+% Heading - Added NIT Patna '21 to title
+\documentTitle{Sumit Kumar}{Data Engineer \textbar\ NIT Patna '21}{
+    \href{tel:+917549980508}{\underline{\raisebox{-0.05\height} \faPhone\ +91-7549980508}} \hspace{10pt}
+    \href{mailto:sumit749284@gmail.com}{\underline{\raisebox{-0.15\height} \faEnvelope\ sumit749284@gmail.com}} \hspace{10pt}
+    \href{https://linkedin.com/in/smaxiso}{\underline{\raisebox{-0.15\height} \faLinkedin\ linkedin.com/in/smaxiso}}
+}
+
+% Skills - Clean structure
+\section{Skills}
+\begin{itemize}[leftmargin=0.15in, label={}, itemsep=-2pt]
+{
+    \item{\textbf{Languages:} Python, Java, Scala}
+    \item{\textbf{Data:} Spark, PySpark, SQL, Kafka, Kafka Connect, Debezium CDC, Airflow}
+    \item{\textbf{Cloud:} AWS (ECS, MSK, DynamoDB, DocumentDB, S3, Bedrock), GCP (BigQuery, Dataproc, Dataflow)}
+    \item{\textbf{GenAI:} OpenAI GPT, AWS Bedrock, LangChain, Prompt Engineering}
+    \item{\textbf{Frameworks:} Spring Boot, FastAPI, React}
+    \item{\textbf{Tools:} Git, Docker, Jenkins, Maven}
+}
+\end{itemize}
+
+\vspace{5pt}
+
+% Experience
+\section{Experience}
+
+% Company 1: Gen Digital
+\headingBf{Gen Digital (formerly NortonLifeLock)}{Dec 2024 -- Present}
+\headingIt{Data Engineer}{Chennai, India}
+\begin{resume_list}
+    \item Engineered custom \textbf{Java-based Kafka Connect SMT library} for Debezium CDC processing from AWS DocumentDB, achieving \textbf{100\% data integrity} and eliminating critical DebeziumException errors across real-time document pipelines.
+    \item Implemented multi-field validation and smart filtering in \textbf{Spring Boot} transaction normalization services, \textbf{reducing invalid data processing by 40\%} and supporting Gen's Unified Data Model  initiative on \textbf{AWS ECS/MSK}.
+    \item Designed and deployed \textbf{Python event-driven microservice} on ECS for member data operations, integrating Kafka for event consumption, DynamoDB for persistence, with comprehensive \textbf{GDPR compliance} and GUID sync strategy.
+    \item Architected \textbf{Financial Insights Provider} — a Python/FastAPI microservice with \textbf{DynamoDB caching (3x speedup)}, 6 insight generators (Fee Monitoring, Duplicate Detection), and intelligent merge-on-PATCH logic for cross-scan deduplication.
+    
+    \vspace{3pt}
+    \item[] \underline{\textbf{FINN}}
+    \item Led development of a \textbf{full-stack module} within the financial wellness platform \textbf{leveraging} \textbf{OpenAI GPT} for behavioral analysis, proprietary emotion scoring intelligence, and \textbf{Monte Carlo simulations} for retirement planning.
+\end{resume_list}
+
+\vspace{8pt}
+
+% Company 2: PayPal (via TCS)
+\headingBf{PayPal (via TCS)}{Jul 2021 -- Nov 2024}
+\headingIt{Data Engineer}{Bangalore, India}
+\begin{resume_list}
+    \vspace{3pt}
+    \item[] \underline{\textbf{Data Migration Framework}} \textit{(Mar 2023 -- Nov 2024)}
+    \item Developed scalable \textbf{ETL framework} for PayPal's data migration using Python, AWS, and BigQuery — achieved \textbf{20\% faster migration} and \textbf{30\% improved scalability}.
+    \item Built automated dashboards with \textbf{Matplotlib} for stakeholder visibility and deployed orchestration using \textbf{Airflow} with auto-generated DAG scripts.
+    
+    \vspace{3pt}
+    \item[] \underline{\textbf{Lynx Entity Linkage Optimization}} \textit{(Jan 2024 -- May 2024)}
+    \item Optimized \textbf{Lynx entity linkage framework} using Scala/Spark and Google's APSS algorithm — achieved \textbf{35\% better accuracy} and \textbf{40\% faster} approximate nearest neighbor search via LSH enhancements.
+    \item Conducted comprehensive testing with ML algorithms (RPDBSCAN, K-Means) for similarity scoring validation.
+    
+    \vspace{3pt}
+    \item[] \underline{\textbf{On-Demand Merchant Reporting}} \textit{(Aug 2021 -- Jan 2023)}
+    \item Built \textbf{on-demand merchant reporting system} with Python, Oracle DB, and GCP Dataproc — achieved \textbf{15\% improved accuracy} and \textbf{25\% faster} report generation.
+    \item Created end-to-end pipeline integrating report requests, authentication, and automated orchestration via internal Airflow (DALM).
+\end{resume_list}
+
+\vspace{8pt}
+
+% Education - At bottom with full details
+\section{Education}
+\headingBf{National Institute of Technology Patna}{2017 -- 2021}
+\headingIt{Bachelor of Technology in \textbf{Computer Science \& Engineering}}{CGPA: 8.0/10}
+
+% RESUME END
+\end{document}

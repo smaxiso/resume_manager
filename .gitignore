@@ -9,6 +9,9 @@
 *.fls
 *.fdb_latexmk
 
+# Logs directory
+logs/
+
 # Compiled PDFs (optional - you might want to keep these in Git)
 # *.pdf
 
