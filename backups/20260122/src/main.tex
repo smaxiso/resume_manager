@@ -1,0 +1,103 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage{custom-design}
+
+% RESUME START
+\begin{document}
+
+% Heading
+\documentTitle{Sumit Kumar}{Data Engineer}{
+    \href{tel:+917549980508}{\underline{\raisebox{-0.05\height} \faPhone\ +91-7549980508}} \hspace{10pt} % Add space instead of separator
+    \href{mailto:sumit749284@gmail.com}{\underline{\raisebox{-0.15\height} \faEnvelope\ sumit749284@gmail.com}} \hspace{10pt} % Add space instead of separator
+    \href{https://linkedin.com/in/smaxiso}{\underline{\raisebox{-0.15\height} \faLinkedin\ linkedin.com/in/smaxiso}}
+}
+
+% Education
+\section{Education}
+\headingBf{National Institute of Technology Patna}{2017 -- 2021}
+\headingIt{Bachelor of Technology in \textbf{Computer Science \& Engineering}}{CGPA: {8.0/10}}
+
+% Experience
+\section{Experience}
+
+% Company 1: Gen Digital
+\headingBf{Gen Digital (formerly NortonLifeLock)}{Dec 2024 -- Present}
+\headingIt{Data Engineer}{Chennai, India}
+\begin{resume_list}
+    \vspace{5pt}
+    \itemTitle{\textbf{Real-time Transaction Normalization \& Scalable Data Lake Design}}
+    \item Contributed to the \textbf{real-time transaction normalization pipeline} leveraging \textbf{Kafka (AWS MSK), ECS, and Java (Spring Boot)}, ensuring high-throughput data processing for fraud detection and financial alerts.
+    \item Enhanced the \textbf{Normalization Service} to support \textbf{unified model payload changes}, improving data consistency and compatibility across multiple vendors.
+    \item Assisted in the design and implementation of a \textbf{scalable Data Lake} using \textbf{S3 Hudi} to efficiently store and manage unified transaction payloads.
+    \item Optimized the ETL pipeline framework for extracting data from \textbf{DocumentDB}, applying transformation logic to align with business requirements, and storing it in \textbf{Parquet format with Snappy compression} for efficient querying in \textbf{Athena}.
+    \item Developed a \textbf{Java-based test automation service} with \textbf{Maven, TeamCity, and TestFLO}, streamlining automated test execution and Jira integration.
+    \item Technologies used: \textbf{Python, Java, Scala, Kafka (AWS MSK), ECS, EMR, TeamCity, Artifactory, Airflow, AWS, DocumentDB, Athena, DynamoDB, S3 Hudi}
+\end{resume_list}
+
+
+% Company 2: Tata Consultancy Services
+\headingBf{Tata Consultancy Services - (Client: PayPal)}{July 2021 -- November 2024}
+\headingIt{Data Engineer}{Bangalore, India}
+
+    % Project 1: Data Migration Framework
+    \begin{resume_list}
+        \vspace{5pt}
+        \itemTitle{\textbf{Data Migration Framework} (Mar 2023 -- Nov 2024)}
+        \item Developed a scalable \textbf{ETL Framework for Data Migration} for PayPal using \textbf{Python, AWS, GCS,} and \textbf{BigQuery}.
+        \item \textbf{Reduced data migration time by 20\%}, improving scalability by \textbf{30\%}.
+        \item Created a dashboard in Python using \textbf{Matplotlib} for snapshot tables, providing data trend visibility to stakeholders. Automated the sending of dashboards via email daily, weekly, monthly, and half-yearly.
+        \item Deployed the ETL framework and dashboard automation using \textbf{Airflow} with DAG scripts. Built an automated framework for configuration and DAG script generation.
+        \item Technologies used: \textbf{Python, AWS, GCS, BigQuery, Airflow, Matplotlib}
+    \end{resume_list}
+
+    % Project 2: Lynx Framework
+    \begin{resume_list}
+        \vspace{5pt}
+        \itemTitle{\textbf{Lynx Framework Optimization} (Jan 2024 -- May 2024)}
+        \item Implemented optimizations in the \textbf{Lynx Framework}, resulting in a \textbf{35\% improvement in data linkage accuracy and efficiency}.
+        \item Optimized the \textbf{Locality-Sensitive Hashing} algorithm, reducing approximate nearest neighbor search time by \textbf{40\%}.
+        \item Conducted thorough testing of the framework’s performance and similarity scoring using ML algorithms such as \textbf{RPDBSCAN, LSH,} and \textbf{K-Means}.
+        \item Leveraged \textbf{Scala} and \textbf{Spark} frameworks, utilizing \textbf{Google's APSS algorithm} to achieve the best performance and accurate similarity scores in entity linkage.
+        \item Technologies used: \textbf{PySpark, Scala, APSS (All Pair Similarity Search), BigQuery, GCP (Dataproc, GCS), LSH}
+    \end{resume_list}
+
+    % Project 3: On-Demand Merchant Reporting
+    \begin{resume_list}
+        \vspace{5pt}
+        \itemTitle{\textbf{On-Demand Merchant Reporting} (Aug 2021 -- Jan 2023)}
+        \item Built on-demand merchant reports, \textbf{increasing data accuracy by 15\%}.
+        \item \textbf{Decreased report generation time by 25\%}.
+        \item Created a pipeline in Python to integrate report generation requests with the report engine, integrated Keymaker authentication, Oracle DB validation, and triggered Dataproc for report generation.
+        \item Automated the process using \textbf{DALM (an internal Airflow app)} to trigger every 30 minutes and one hour.
+        \item Developed SQL queries for data validation and deployed them into the \textbf{Rule Execution Framework (REF)} for automated data validation.
+        \item Technologies used: \textbf{Python, SQL, Apache Spark, Oracle, GCP, Airflow, Dataproc}
+    \end{resume_list}
+
+% Company 3: NIT Patna
+\headingBf{NIT Patna (Internship)}{May 2020 -- July 2020}
+\headingIt{Data Science Research Intern}{Patna, India}
+\begin{resume_list}
+    \vspace{5pt}
+    \itemTitle{\textbf{Forest Fire Detection System}}
+    \item Developed a real-time \textbf{forest fire detection system} using \textbf{Python-based machine learning algorithms} and \textbf{fuzzy logic}.
+    \item Achieved an \textbf{accuracy rate of 90\%} in predicting the likelihood and severity of forest fires.
+    \item Technologies used: \textbf{Python, machine learning, fuzzy logic}
+\end{resume_list}
+
+
+% Skills
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}, itemsep=-1.5pt]
+{
+    \item{\textbf{Programming Languages:} Python, Java, C++, C, Shell/Bash}
+    \item{\textbf{Databases:} DocumentDB, DynamoDB, MySQL, BigQuery, Oracle}
+    \item{\textbf{Frameworks:} Apache Spark, PySpark, Spring Boot, Django, React}
+    \item{\textbf{Developer Tools:} Git, GitHub, CI/CD, Jenkins, Airflow, TeamCity, Artifactory, TestFLO}
+    \item{\textbf{Cloud Platforms:} AWS (S3, MSK, ECS, EMR, Glue, Athena, DMS), GCP (GCS, BigQuery, Dataproc, Dataflow, Data Catalog)}
+    \item{\textbf{Concepts:} Real-time Data Processing, ETL, Data Warehousing, Data Normalization, Data Lake Design, Transaction Processing, Machine Learning, Cloud Computing, Unix Systems, Generative AI, Agile Methodology, HDFS, Data Structures and Algorithms, Database Management, Operating Systems, Computer Networks}
+}
+\end{itemize}
+
+% RESUME END
+\end{document}
+% Test comment
+% Another test change to trigger hook
