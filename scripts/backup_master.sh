@@ -32,8 +32,16 @@ echo "Created backup of master resume at $BACKUP_DIR"
 # Update CHANGELOG automatically for backup
 # We still group by Day in the header, but list the specific backup timestamp
 CURRENT_DATE=$(date +"%Y-%m-%d")
+
+# Prompt user for a brief description
+echo "Enter a brief description of what changed in this version:"
+read -r CHANGE_DESC
+if [ -z "$CHANGE_DESC" ]; then
+  CHANGE_DESC="Backup created"
+fi
+
 TEMP_FILE=$(mktemp)
-echo -e "# Resume Changelog\n\n## [$CURRENT_DATE]\n- Created backup: $TIMESTAMP\n" > "$TEMP_FILE"
+echo -e "# Resume Changelog\n\n## [$CURRENT_DATE]\n- [$TIMESTAMP] $CHANGE_DESC\n" > "$TEMP_FILE"
 
 if [ -f CHANGELOG.md ]; then
   cat CHANGELOG.md | grep -v "^# Resume Changelog" >> "$TEMP_FILE"
