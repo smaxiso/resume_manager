@@ -1,6 +1,10 @@
 # Resume Changelog
 
 ## [2026-07-18]
+- [20260718_004038] Included AWS Glue in the Self-Healing AI Agent stack.
+
+
+## [2026-07-18]
 - [20260718_003937] Removed Amazon branding and consolidated Redshift/S3 COPY mentions.
 
 
