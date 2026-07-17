@@ -33,11 +33,15 @@ echo "Created backup of master resume at $BACKUP_DIR"
 # We still group by Day in the header, but list the specific backup timestamp
 CURRENT_DATE=$(date +"%Y-%m-%d")
 
-# Prompt user for a brief description
-echo "Enter a brief description of what changed in this version:"
-read -r CHANGE_DESC
-if [ -z "$CHANGE_DESC" ]; then
-  CHANGE_DESC="Backup created"
+if [ -n "$1" ]; then
+  CHANGE_DESC="$1"
+else
+  # Prompt user for a brief description
+  echo "Enter a brief description of what changed in this version:"
+  read -r CHANGE_DESC < /dev/tty
+  if [ -z "$CHANGE_DESC" ]; then
+    CHANGE_DESC="Backup created"
+  fi
 fi
 
 TEMP_FILE=$(mktemp)

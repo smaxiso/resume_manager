@@ -13,21 +13,23 @@ fi
 # Create hooks directory if it doesn't exist
 mkdir -p .git/hooks
 
-# Copy the pre-push hook
-if [ -f "git-hooks/pre-push" ]; then
-  cp git-hooks/pre-push .git/hooks/pre-push
-  chmod +x .git/hooks/pre-push
-  echo "✅ Pre-push hook installed and made executable"
+# Copy the pre-commit hook
+if [ -f "git-hooks/pre-commit" ]; then
+  cp git-hooks/pre-commit .git/hooks/pre-commit
+  chmod +x .git/hooks/pre-commit
+  echo "✅ Pre-commit hook installed and made executable"
 else
-  echo "❌ Error: git-hooks/pre-push not found"
+  echo "❌ Error: git-hooks/pre-commit not found"
   exit 1
 fi
 
 echo "🎉 Git hooks setup complete!"
 echo
-echo "📝 The pre-push hook will now:"
-echo "   • Check for changelog updates when pushing resume changes"
-echo "   • Prevent pushes if CHANGELOG.md is not updated"
-echo "   • Provide clear instructions on how to fix issues"
+echo "📝 The pre-commit hook will now automatically:"
+echo "   • Detect if you made changes to the master resume"
+echo "   • Build the PDF to ensure it compiles correctly"
+echo "   • Prompt you for a brief description of changes"
+echo "   • Create a backup and update your CHANGELOG.md"
+echo "   • Bundle everything perfectly into your commit!"
 echo
-echo "💡 To update the changelog manually, run: ./scripts/update_changelog.sh"
+echo "💡 You just edit, git add, git commit, and git push. We handle the rest!"

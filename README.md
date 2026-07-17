@@ -21,7 +21,7 @@ After cloning this repository, run the setup script to install git hooks:
 ./scripts/setup_git_hooks.sh
 ```
 
-This will install a pre-push hook that ensures your CHANGELOG.md is updated when you make resume changes.
+This will install a `pre-commit` hook that fully automates the build, backup, and changelog process when you make resume changes.
 
 ## Usage
 
@@ -45,44 +45,28 @@ The primary build script handles LaTeX compilation, handles missing dependencies
 ./scripts/create_company_resume.sh company_name
 ```
 
-## CHANGELOG Management
+## CHANGELOG and Backup Management
 
-This repository maintains a CHANGELOG.md file to track significant changes to your resume.
+This repository maintains a `CHANGELOG.md` file to track significant changes and a `backups/` directory for historical snapshots.
 
-### Automatic CHANGELOG Updates
+### Automatic Workflow (The pre-commit hook)
 
-The CHANGELOG is automatically updated when you:
-- Run `./scripts/backup_master.sh` to create a backup (timestamped, supports multiple per day)
-- Run `./scripts/create_company_resume.sh` to create a company resume
+With the hooks installed (`./scripts/setup_git_hooks.sh`), your workflow is completely automated:
 
-### Manual CHANGELOG Updates
+1. **Make changes** to your resume files in `master/src/`
+2. **Stage your changes**: `git add .`
+3. **Commit your changes**: `git commit`
+4. The hook will interrupt and **prompt you** for a brief description of what changed.
+5. The hook will then automatically:
+   - Build the PDF to ensure it compiles
+   - Create a backup in `backups/`
+   - Update `CHANGELOG.md` with your description
+   - Stage the newly created PDF, backup, and changelog
+6. Your commit completes successfully with everything bundled!
 
-You can manually update the CHANGELOG with:
+### Manual Execution
 
+If you wish to run the backup and changelog manually without committing:
 ```bash
-./scripts/update_changelog.sh
+./scripts/backup_master.sh "Your description here"
 ```
-
-### Git Integration
-
-A pre-push hook ensures CHANGELOG.md is updated when you push changes.
-The hook is installed via `./scripts/setup_git_hooks.sh`.
-
-If you make changes to resume files without updating the CHANGELOG,
-the hook will prevent the push and provide clear instructions on how to update it.
-
-**Note**: If you're setting up this repository on a new machine, make sure to run the setup script to install the git hooks.
-
-
-## Complete Workflow
-
-With these tools in place, your workflow becomes:
-
-1. **Make changes** to your resume files
-2. **Run scripts** to create backups or company versions (CHANGELOG updates automatically)
-3. **Stage and commit** your changes
-4. When you **push**, the hook checks if you've updated the CHANGELOG
-5. If not, it **prompts you** to add a CHANGELOG entry through an interactive menu
-6. After updating the CHANGELOG, the **push proceeds**
-
-This setup ensures your CHANGELOG stays current with minimal effort, while the menu-based approach makes it easy to add standardized entries. The Git integration makes the workflow seamless while still giving you flexibility to describe changes in a meaningful way.

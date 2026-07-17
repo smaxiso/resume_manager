@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# pre-commit hook to automatically build, backup, and update changelog
+
+# Check if any file in master/src is staged for commit
+if git diff --cached --name-only | grep -q "^master/src/"; then
+  echo "📝 Changes in master/src detected. Running automatic build and backup..."
+
+  # Build the resume
+  echo "🔨 Building resume..."
+  ./scripts/build_resume.sh
+  if [ $? -ne 0 ]; then
+    echo "❌ Build failed. Aborting commit."
+    exit 1
+  fi
+
+  # Ask for changelog description
+  echo "Enter a brief description of what changed in this version for the CHANGELOG:"
+  read -r CHANGE_DESC < /dev/tty
+  if [ -z "$CHANGE_DESC" ]; then
+    CHANGE_DESC="Updated master resume"
+  fi
+
+  # Run backup which also updates changelog
+  ./scripts/backup_master.sh "$CHANGE_DESC"
+
+  # Stage the generated files
+  git add master/src/sumit_kumar.pdf
+  git add backups/
+  git add CHANGELOG.md
+
+  echo "✅ Automatically added build, backup, and changelog to this commit."
+fi
+
+exit 0
