@@ -1,6 +1,10 @@
 # Resume Changelog
 
 ## [2026-07-18]
+- [20260718_003937] Removed Amazon branding and consolidated Redshift/S3 COPY mentions.
+
+
+## [2026-07-18]
 - [20260718_003647] Condense Cocoblu resume bullets for conciseness and readability
 
 
