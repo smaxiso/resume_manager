@@ -1,6 +1,10 @@
 # Resume Changelog
 
 ## [2026-07-20]
+- [20260720_115024] Consolidated SP-API SDK details into the pricing engine project to avoid redundancy.
+
+
+## [2026-07-20]
 - [20260720_112245] Reorganized Cocoblu experience into domains and restored key metrics.
 
 
