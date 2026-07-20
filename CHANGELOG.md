@@ -1,5 +1,9 @@
 # Resume Changelog
 
+## [2026-07-20]
+- [20260720_112245] Reorganized Cocoblu experience into domains and restored key metrics.
+
+
 ## [2026-07-18]
 - [20260718_004038] Included AWS Glue in the Self-Healing AI Agent stack.
 
