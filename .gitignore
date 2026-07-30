@@ -23,4 +23,7 @@ logs/
 
 
 # MacOS
-.DS_Store
+.DS_Storebiodata/
+
+# Locals
+biodata/
